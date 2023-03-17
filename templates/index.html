@@ -1,0 +1,52 @@
+{% include "header.html" %}
+
+        <!-- Page Header-->
+        <header class="masthead" style="background-image: url(https://media.istockphoto.com/id/521033980/es/foto/cultivo-de-flores-blancas-en-grieta-calle-foco-suave.jpg?s=1024x1024&w=is&k=20&c=xPU3TwBZZUSIT9KvivQN39DConkc3rCV-Ut9JLV-Jlg=)">
+            <div class="container position-relative px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <div class="site-heading">
+                            <h1>Ale Blog</h1>
+                            <span class="subheading">A Blog Alejandro M.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content-->
+  <div class="container px-4 px-lg-5">
+   <div class="row gx-4 gx-lg-5 justify-content-center">
+    <div class="col-md-10 col-lg-8 col-xl-7">
+
+        {% for post in all_post %}
+          <div class="post-preview">
+          <a href="{{ url_for('show_post', index=post.id) }}">
+            <h2 class="post-title">
+              {{post.title}}
+            </h2>
+            <h3 class="post-subtitle">
+              {{post.subtitle}}
+            </h3>
+          </a>
+
+          <p class="post-meta">Posted by
+            <a href="#">{{post.author}}</a>
+            on {{post.date}}</p>
+        </div>
+        <hr>
+        {% endfor %}
+
+
+          <!-- Divider-->
+          <hr class="my-4" />
+          <!-- Pager-->
+          <div class="d-flex justify-content-end mb-4">
+              <a class="btn btn-primary text-uppercase" href="#!">Older Posts →</a>
+          </div>
+       </div>
+    </div>
+  </div>
+<hr>
+
+{% include "footer.html" %}
