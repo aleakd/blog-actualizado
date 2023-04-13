@@ -24,18 +24,27 @@ def show_post(index):
 def about():
     return render_template("about.html")
 
-@app.route('/contact')
+@app.route('/contact', methods=["GET","POST"])
 def contact():
-    return render_template("contact.html")
+    if request.method =="POST":
+        data = request.form
+        name = request.form["name"]
+        print(data["name"])
+        print(data["email"])
+        print(data["phone"])
+        print(data["message"])
+        return render_template("contact.html", msg_sent=True)
+    return render_template("contact.html", msg_sent=False)
 
-@app.route('/form-entry', methods=["POST"])
-def mensaje():
-    data = request.form
-    print(data["name"])
-    print(data["email"])
-    print(data["phone"])
-    print(data["message"])
-    return "<h1>el mensaje se recibio correctamente</h1>"
+#@app.route('/form-entry', methods=["POST"])
+#def receive_data():
+#    data = request.form
+#    name = request.form["name"]
+#    print(data["name"])
+#    print(data["email"])
+#    print(data["phone"])
+#    print(data["message"])
+#    return f"<h1>{name}el mensaje se recibio correctamente</h1>"
 
 
 
