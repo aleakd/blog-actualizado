@@ -21,7 +21,7 @@
 
         {% for post in all_post %}
           <div class="post-preview">
-          <a href="{{ url_for('show_post', index=post.id) }}">
+          <a href="{{ url_for('show_post', post_id=post.id) }}">
             <h2 class="post-title">
               {{post.title}}
             </h2>
@@ -42,7 +42,7 @@
           <hr class="my-4" />
           <!-- Pager-->
           <div class="d-flex justify-content-end mb-4">
-              <a class="btn btn-primary text-uppercase" href="#!">Older Posts →</a>
+              <a class="btn btn-primary text-uppercase" href="new-post">create a post →</a>
           </div>
        </div>
     </div>
